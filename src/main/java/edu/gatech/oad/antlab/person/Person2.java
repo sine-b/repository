@@ -1,4 +1,5 @@
 package edu.gatech.oad.antlab.person;
+import java.util.*;
 
 /**
  *  A simple class for person 2
@@ -33,7 +34,16 @@ public class Person2 {
 	  if (input == null) {
 	    return null;
 	  }
-	  String change = input.substring(2, input.length()) + input.substring(0, 2);
+	  Random rand = new Random();
+	  List<Character> chars = new ArrayList<Character>();
+	  for (char element : input.toCharArray()) {
+	    chars.add(element);
+	  }
+	  String change = "";
+	  while (chars.size() > 0) {
+	    int num = rand.nextInt(chars.size());
+	    change += chars.remove(num);
+	  }
 	  return change;
 	}
 	/**
